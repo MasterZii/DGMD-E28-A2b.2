@@ -1,0 +1,85 @@
+﻿/*like to keep the {}'s on their own line for visibility*/
+h1 {
+    text-align: center;
+}
+
+div.game {
+    display: flex;
+    justify-content: center;
+}
+
+div.square {
+    border: 1px solid black;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game {
+    text-align: center;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+}
+
+/*using the same stylesheet, so renamed the grid as to not replace the first page's work*/
+.gridjs {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+}
+/*the squares of the board themselves*/
+.square {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    margin: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    /*let's try a pretty mint green this time*/
+    .square:hover {
+        background-color: #d2ffb9;
+    }
+/*where the X's and O's will go, and their formatting*/
+p {
+    font-size: 50px;
+}
+
+hr {
+    width: 50%;
+}
+/*had some issues with the padding so I broke up the new divs*/
+div.turn {
+    text-align: center;
+    border: #9a0012 1px solid;
+}
+
+    div.turn p {
+        font-size: 20px;
+        padding: 5px;
+        margin: 0;
+    }
+
+div.win {
+    text-align: center;
+    border: #00c40a 1px solid;
+}
+
+    div.win p {
+        font-size: 20px;
+        padding: 5px;
+        margin: 0;
+    }

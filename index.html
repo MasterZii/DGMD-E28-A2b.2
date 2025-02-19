@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Part 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Tic Tac Toe Board</h1>
+    <br>
+    <div class="win">
+        <p>[Winner Here]</p>
+    </div>
+    <br>
+    <div class="turn">
+        <p>O's turn!</p>
+    </div>
+    <div class="game">
+        <div class="gridjs">
+
+            <!--creating the new variables within the script-->
+            <script>
+                const NUM_SQUARES = 9;
+                for (var i = 0; i < NUM_SQUARES; i++) {
+                    var id = "sq" + i;
+                    document.write("<div class='square' id='" + id + "'></div>");
+                }
+                //honestly almost identical to the original js, slightly diff iteration
+            </script>
+
+        </div>
+    </div>
+
+
+    <!-- guess we'll need a turn counter now -->
+    <script>
+        //odd for X, even for O -- sounds good
+        var turn = 0;
+        for (let i = 0; i < 9; i++)
+        {
+            let square = document.getElementById("sq" + i);
+            //had issues with var not finding correct value of square
+            //changed var's to let's and problem solved
+
+            //the single event listener, but for both players now
+            square.addEventListener("click", function ()
+            {
+                // drop an X or O within square clicked, depending on turn
+                if (turn % 2 === 0)
+                {
+                    square.innerHTML = "<p>X</p>";
+                } else
+                {
+                    square.innerHTML = "<p>O</p>";
+                }
+                //innerHTML just in case I need to keep the HTML formatting beyond plain text later
+
+                //BOOM! the popup
+                alert("This square's number is: " + i);
+
+                //gotta have turn cycles, so
+                turn++;
+            });
+        }
+        //having some issues with popup
+        //works fine but it needs to be "up" on the page for a couple of seconds
+        //otherwise I can't click to close it right away
+        //I'll figure it out later, still works. Might just be my browser
+
+        //also noticed you can overwrite previous turn, I assume we will fix that in the next ttt
+    </script>
+
+
+    <br> <!--needed to add some more space-->
+    <hr>
+    DGMD-E28-A2b
+</body>
+</html>
