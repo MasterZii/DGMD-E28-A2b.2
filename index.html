@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,7 +14,7 @@
     </div>
     <br>
     <div class="turn">
-        <p>O's turn!</p>
+        <p>It's X's turn!</p> <!--first turn hard-coded to X-->
     </div>
     <div class="game">
         <div class="gridjs">
@@ -46,7 +46,14 @@
             //the single event listener, but for both players now
             square.addEventListener("click", function ()
             {
-                // drop an X or O within square clicked, depending on turn
+                //have to see if that square is available to drop an X or O 
+                if (square.innerHTML.trim() !== "")
+                {
+                    alert("Please select only from the empty squares");
+                    return; //have the player try again
+                }
+
+                //drop an X or O within square clicked, depending on turn
                 if (turn % 2 === 0)
                 {
                     square.innerHTML = "<p>X</p>";
@@ -61,6 +68,19 @@
 
                 //gotta have turn cycles, so
                 turn++;
+
+
+                var turnDisplay = document.querySelector(".turn p");
+                //paragraph text within the turn div
+
+                if (turn % 2 === 0)
+                {
+                    turnDisplay.textContent = "It's X's turn!";
+                } else
+                {
+                    turnDisplay.textContent = "It's O's turn!";
+                }
+                //updating the player turn text
             });
         }
         //having some issues with popup
@@ -68,7 +88,7 @@
         //otherwise I can't click to close it right away
         //I'll figure it out later, still works. Might just be my browser
 
-        //also noticed you can overwrite previous turn, I assume we will fix that in the next ttt
+        //fixed the overwrite issue, oops 
     </script>
 
 
